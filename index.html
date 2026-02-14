@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Precious Baby🩶</title>
+ <link rel="icon" type="image/x-icon" href="souls.jpg">
+
+<style>
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+}
+
+/* main container */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* card sections */
+.section {
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px #333;
+}
+
+/* teddy */
+.teddy {
+    font-size: 80px;
+    text-align: center;
+}
+
+/* heart shape */
+.heart {
+    position: relative;
+    width: 120px;
+    height: 110px;
+    background: gray;
+    margin: 20px auto;
+    transform: rotate(-45deg);
+    animation: beat 1.2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 110px;
+    background: gray;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+/* text inside heart */
+.heart-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* beating animation */
+@keyframes beat {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+/* paragraph */
+.text-area {
+    margin-top: 15px;
+    color: #ccc;
+}
+
+/* image style */
+.photo {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+/* video style */
+video {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+</style>
+</head>
+<body>
+
+    <script>
+let password = "AlwaysAndForever";
+let userInput = prompt("This page is private. Enter the password:");
+
+if (userInput !== password) {
+    document.body.innerHTML = "Access denied.";
+}
+</script>
+
+<div class="container">
+
+
+<!-- SECTION 1 -->
+<div class="section">
+
+    <div class="heart">
+        <div class="heart-text">
+            Joe 🩶
+        </div>
+    </div>
+
+    
+    <div class="text-area">
+        <p>
+            You are my rock, my peace , my strength. In the quiet moments , in tge loud moments, i just want to be with you because the chaos feel lighter when i'm with you. I love you baby, with everything in me fr.
+        </p>
+    </div>
+
+    <!-- 🖼️ ADD YOUR JPEG PHOTO HERE -->
+    <!-- Replace photo1.jpg with your actual file name -->
+    <img src="intertwined.jpg" class="photo">
+
+
+</div>
+
+
+
+<!-- SECTION 2 TEDDY -->
+<div class="section">
+
+    <div class="teddy">🧸</div>
+
+    <div class="heart">
+        <div class="heart-text">
+            I Love You  My Joe
+        </div>
+    </div>
+
+    <!-- ✏️ WRITE YOUR PARAGRAPH HERE -->
+    <div class="text-area">
+        <p>
+            My sweet heartbeat, you make everything worthwhile. You help me grow and become better and i really don't take that for granted. Now that I know life with you, I pray to never have to know life without you baby. I love you so much, more than words can say.
+        </p>
+    </div>
+
+
+    <!-- 🎵 ADD YOUR VIDEO SONG HERE -->
+    <!-- Replace song.mp4 with your actual video file -->
+    <video controls>
+        <source src="Always and Forever.mp4" type="video/mp4">
+    </video>
+
+
+</div>
+
+
+
+<!-- SECTION 3 -->
+<div class="section">
+
+    <div class="heart">
+        <div class="heart-text">
+            Always and Forever
+        </div>
+    </div>
+
+    <!-- ✏️ WRITE YOUR PARAGRAPH HERE -->
+    <div class="text-area">
+        <p>
+            I love you baby. Valentines is just another day of showing my love for you. I love you every day of my life. You are on my mind evry second my precious. your name and existence is engraved so deeply in my soul. You own me.
+        </p>
+    </div>
+
+
+    <!-- 🖼️ ADD ANOTHER JPEG PHOTO HERE -->
+    <img src="heart.jpg" class="photo">
+
+
+    <!-- 🎵 OPTIONAL SECOND VIDEO SONG -->
+    <video controls>
+        <source src="Can't Help Falling in Love.mp4" type="video/mp4">
+    </video>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
