@@ -40,40 +40,42 @@ body {
 /* heart shape */
 .heart {
     position: relative;
-    width: 120px;
-    height: 110px;
+    width: 70px;
+    height: 65px;
     background: gray;
-    margin: 20px auto;
+    margin: 15px auto;
     transform: rotate(-45deg);
-    animation: beat 1.2s infinite;
+    animation: beat 1.3s infinite;
 }
 
 .heart::before,
 .heart::after {
     content: "";
     position: absolute;
-    width: 120px;
-    height: 110px;
+    width: 70px;
+    height: 65px;
     background: gray;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -60px;
+    top: -35px;
     left: 0;
 }
 
 .heart::after {
-    left: 60px;
+    left: 35px;
     top: 0;
 }
 
 /* text inside heart */
 .heart-text {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
+    font-size: 11px;
+    width: 60px;
     color: black;
     font-weight: bold;
     text-align: center;
@@ -94,10 +96,12 @@ body {
 
 /* image style */
 .photo {
-    width: 100%;
-    margin-top: 15px;
+    width: 80%;
+    max-height: 300px;
+    object-fit: cover;
+    margin: 20px auto;
     border-radius: 10px;
-    border: 1px solid gray;
+    display: block;
 }
 
 /* video style */
@@ -156,7 +160,7 @@ if (userInput !== password) {
 
     <div class="heart">
         <div class="heart-text">
-            I Love You  My Joe
+            Always
         </div>
     </div>
 
@@ -184,7 +188,7 @@ if (userInput !== password) {
 
     <div class="heart">
         <div class="heart-text">
-            Always and Forever
+            Forever
         </div>
     </div>
 
