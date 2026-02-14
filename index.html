@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="icon" type="image/jpg" href="souls.jpg">
-    
     <title>To My Sweet Joe</title>
     
     <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+
         body {
             background-color: #1a1a1a;
             display: flex;
@@ -18,7 +19,8 @@
             margin: 0;
             font-family: 'Georgia', serif;
             color: #b0b0b0;
-            padding: 20px;
+            padding: 40px 20px;
+            overflow-x: hidden;
         }
 
         /* --- PASSWORD OVERLAY --- */
@@ -42,9 +44,11 @@
             text-align: center;
             outline: none;
             margin-bottom: 15px;
+            transition: border 0.3s;
         }
+        input[type="password"]:focus { border-color: #e63946; }
 
-        button {
+        button.unlock-btn {
             padding: 10px 25px;
             background: #e63946;
             color: white;
@@ -52,79 +56,122 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            transition: transform 0.2s;
         }
+        button.unlock-btn:hover { transform: scale(1.05); }
 
         /* --- MAIN CONTENT CARD --- */
         #main-content {
             display: none; 
-            width: 450px; 
+            width: 100%;
+            max-width: 450px; 
             background: #2d2d2d;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.05); /* Subtle Glow */
+            animation: fadeInPage 1.5s ease;
         }
 
-        /* Bear & Heart Styling */
-        .bear-container { position: relative; width: 150px; height: 110px; margin: 0 auto 10px; }
-        .bear { width: 80px; height: 75px; background: #555; border-radius: 50% 50% 45% 45%; position: absolute; bottom: 0; left: 35px; }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- ANIMATED BEAR --- */
+        .bear-container { 
+            position: relative; 
+            width: 150px; 
+            height: 110px; 
+            margin: 0 auto 20px; 
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .bear { 
+            width: 80px; 
+            height: 75px; 
+            background: #555; 
+            border-radius: 50% 50% 45% 45%; 
+            position: absolute; 
+            bottom: 0; 
+            left: 35px;
+            animation: tilt 2s ease-in-out infinite;
+        }
         .bear::before, .bear::after { content: ''; position: absolute; width: 25px; height: 25px; background: #555; border-radius: 50%; top: -8px; }
         .bear::before { left: -5px; } .bear::after { right: -5px; }
         
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes tilt { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+
+        /* --- HEARTS --- */
         .heart { 
-            position: absolute; 
-            background: #555; /* Gray Hearts */
+            background: #888; 
             clip-path: path('M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.06 4.86 5.821 12 11.273 7.14-5.452 12-7.213 12-11.273 0-8.165-10.011-8.967-12-3.568z');
             animation: beat 0.8s infinite alternate;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #111;
-            font-size: 8px;
             font-family: sans-serif;
             font-weight: bold;
             text-transform: uppercase;
         }
+        .main-heart { position: absolute; bottom: 10px; left: 50%; margin-left: -15px; width: 30px; height: 30px; }
+        .text-heart { position: relative; width: 80px; height: 80px; margin: 20px auto; font-size: 11px; }
+        .text-heart span { padding-bottom: 8px; }
 
-        .main-heart { bottom: 10px; left: 50%; width: 30px; height: 30px; }
+        @keyframes beat { from { transform: scale(1); } to { transform: scale(1.1); } }
 
-        .text-heart {
-            position: relative;
-            width: 50px;
-            height: 50px;
-            margin: 10px auto;
-        }
-        .text-heart span {
-            position: absolute;
-            top: 8px;
-            z-index: 2;
-            width: 100%;
-            text-align: center;
-        }
-
-        @keyframes beat { 
-            from { transform: scale(1); }
-            to { transform: scale(1.15); } 
+        /* --- CONTENT STYLING --- */
+        h1 { color: #ffffff; margin-bottom: 25px; font-size: 1.6rem; letter-spacing: 1.5px; }
+        
+        p.love-letter {
+            line-height: 1.8;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+            border-left: 2px solid #e63946; /* Romantic accent line */
+            padding-left: 20px;
+            text-align: left;
+            margin-bottom: 40px;
         }
 
-        /* Gallery and Video Styling */
+        .line-divider { border: 0; height: 1px; background: #444; margin: 30px 0; }
+
         .gallery img, .gallery video {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid #444;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            filter: grayscale(20%); /* Modern moody look */
+            transition: filter 0.5s;
         }
+        .gallery img:hover { filter: grayscale(0%); }
 
-        h1 { color: #e63946; margin: 15px 0; font-size: 1.5rem; }
-        h3 { color: #e63946; margin-top: 30px; font-size: 1.1rem; }
+        /* --- SCROLL TO TOP BUTTON --- */
+        #scrollTopBtn {
+            margin-top: 40px;
+            background: transparent;
+            color: #888;
+            border: 1px solid #444;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        #scrollTopBtn:hover { color: #e63946; border-color: #e63946; }
+
     </style>
 </head>
 <body>
 
     <div id="lock-screen">
-        <h2 style="color:#e63946">A Special Message</h2>
-        <input type="password" id="passInput" placeholder="Password">
-        <button onclick="checkPassword()">Unlock</button>
+        <h2 style="color:#ffffff; font-weight: normal; letter-spacing: 2px;">Locked with Love</h2>
+        <input type="password" id="passInput" placeholder="Enter Password">
+        <button class="unlock-btn" onclick="checkPassword()">Open</button>
     </div>
 
     <div id="main-content">
@@ -135,31 +182,30 @@
 
         <h1>My Forever Valentine</h1>
         
-        <p>
+        <p class="love-letter">
             My dear sweet man, I cant even begin to thank you for being in my life. Thankyou for choosing to stay even when you could've left. You are my ray of sunshine, my solace. my God-given gift. You came to me at the right moment as an evidence of what love should be like. I can't wait to spend my forever with you and watch our family grow together in love and peace. Let's create our own little heaven here baby. Just us and our babies moving through life in our own way. Thankyou for being my calm in the chaos baby. I love you so much my sweet Joe. ALWAYS AND FOREVER🩶🩶
         </p>
 
         <div class="gallery">
             <div class="text-heart heart"><span>Always</span></div>
-            <img src="intertwined.jpg" alt="Photo 2">
+            <img src="intertwined.jpg" alt="Always">
+
+            <hr class="line-divider">
 
             <div class="text-heart heart" style="animation-delay: 0.4s;"><span>Forever</span></div>
-            <img src="heart.jpg" alt="Photo 3">
+            <img src="heart.jpg" alt="Forever">
 
-            <h3>I love you so much</h3>
-            <video controls>
-                <source src="Always and Forever.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Can't Help Falling in Love.mp4" type="video/mp4">
-            </video>
+            <h3 style="color:white; margin: 40px 0 20px;">I love you so much</h3>
+            <video controls><source src="Always and Forever.mp4" type="video/mp4"></video>
+            <video controls><source src="Can't Help Falling in Losve.mp4" type="video/mp4"></video>
         </div>
+
+        <button id="scrollTopBtn" onclick="window.scrollTo(0, 0);">Back to Top ↑</button>
     </div>
 
     <script>
         function checkPassword() {
             const pass = document.getElementById('passInput').value;
-            // CHANGE "yourpassword" TO YOUR CHOSEN KEY
             if (pass === "alwaysandforever") { 
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
