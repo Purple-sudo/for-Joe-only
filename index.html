@@ -196,8 +196,12 @@
             <img src="heart.jpg" alt="Forever">
 
             <h3 style="color:white; margin: 40px 0 20px;">I love you so much</h3>
-            <video controls><source src="Always and Forever.mp4" type="video/mp4"></video>
-            <video controls><source src="Falling in love.mp4" type="video/mp4"></video>
+            <video controls preload="metadata">
+                <source src="v1.mp4" type="video/mp4">
+            </video>
+            <video controls preload="metadata">
+                <source src="v2.mp4" type="video/mp4">
+            </video>
         </div>
 
         <button id="scrollTopBtn" onclick="window.scrollTo(0, 0);">Back to Top ↑</button>
