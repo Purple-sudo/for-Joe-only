@@ -1,218 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Precious Baby🩶</title>
- <link rel="icon" type="image/x-icon" href="souls.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/jpg" href="souls.jpg">
+    
+    <title>To My Sweet Joe</title>
+    
+    <style>
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #b0b0b0;
+            padding: 20px;
+        }
 
-<style>
+        /* --- PASSWORD OVERLAY --- */
+        #lock-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
 
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 30px;
-}
+        input[type="password"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            outline: none;
+            margin-bottom: 15px;
+        }
 
-/* main container */
-.container {
-    max-width: 900px;
-    margin: auto;
-}
+        button {
+            padding: 10px 25px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-/* card sections */
-.section {
-    border: 1px solid gray;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 15px #333;
-}
+        /* --- MAIN CONTENT CARD --- */
+        #main-content {
+            display: none; 
+            width: 450px; 
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
 
-/* teddy */
-.teddy {
-    font-size: 80px;
-    text-align: center;
-}
+        /* Bear & Heart Styling */
+        .bear-container { position: relative; width: 150px; height: 110px; margin: 0 auto 10px; }
+        .bear { width: 80px; height: 75px; background: #555; border-radius: 50% 50% 45% 45%; position: absolute; bottom: 0; left: 35px; }
+        .bear::before, .bear::after { content: ''; position: absolute; width: 25px; height: 25px; background: #555; border-radius: 50%; top: -8px; }
+        .bear::before { left: -5px; } .bear::after { right: -5px; }
+        
+        .heart { 
+            position: absolute; 
+            background: #555; /* Gray Hearts */
+            clip-path: path('M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.06 4.86 5.821 12 11.273 7.14-5.452 12-7.213 12-11.273 0-8.165-10.011-8.967-12-3.568z');
+            animation: beat 0.8s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111;
+            font-size: 8px;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-/* heart shape */
-.heart {
-    position: relative;
-    width: 70px;
-    height: 65px;
-    background: gray;
-    margin: 15px auto;
-    transform: rotate(-45deg);
-    animation: beat 1.3s infinite;
-}
+        .main-heart { bottom: 10px; left: 50%; width: 30px; height: 30px; }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 65px;
-    background: gray;
-    border-radius: 50%;
-}
+        .text-heart {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            margin: 10px auto;
+        }
+        .text-heart span {
+            position: absolute;
+            top: 8px;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
 
-.heart::before {
-    top: -35px;
-    left: 0;
-}
+        @keyframes beat { 
+            from { transform: scale(1); }
+            to { transform: scale(1.15); } 
+        }
 
-.heart::after {
-    left: 35px;
-    top: 0;
-}
+        /* Gallery and Video Styling */
+        .gallery img, .gallery video {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #444;
+            margin-bottom: 15px;
+        }
 
-/* text inside heart */
-.heart-text {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    font-size: 11px;
-    width: 60px;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* beating animation */
-@keyframes beat {
-    0% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.1); }
-    100% { transform: rotate(-45deg) scale(1); }
-}
-
-/* paragraph */
-.text-area {
-    margin-top: 15px;
-    color: #ccc;
-}
-
-/* image style */
-.photo {
-    width: 80%;
-    max-height: 300px;
-    object-fit: cover;
-    margin: 20px auto;
-    border-radius: 10px;
-    display: block;
-}
-
-/* video style */
-video {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 10px;
-    border: 1px solid gray;
-}
-
-</style>
+        h1 { color: #e63946; margin: 15px 0; font-size: 1.5rem; }
+        h3 { color: #e63946; margin-top: 30px; font-size: 1.1rem; }
+    </style>
 </head>
 <body>
 
+    <div id="lock-screen">
+        <h2 style="color:#e63946">A Special Message</h2>
+        <input type="password" id="passInput" placeholder="Password">
+        <button onclick="checkPassword()">Unlock</button>
+    </div>
+
+    <div id="main-content">
+        <div class="bear-container">
+            <div class="bear"></div>
+            <div class="heart main-heart"></div>
+        </div>
+
+        <h1>My Forever Valentine</h1>
+        
+        <p>
+            My dear sweet man, I cant even begin to thank you for being in my life. Thankyou for choosing to stay even when you could've left. You are my ray of sunshine, my solace. my God-given gift. You came to me at the right moment as an evidence of what love should be like. I can't wait to spend my forever with you and watch our family grow together in love and peace. Let's create our own little heaven here baby. Just us and our babies moving through life in our own way. Thankyou for being my calm in the chaos baby. I love you so much my sweet Joe. ALWAYS AND FOREVER🩶🩶
+        </p>
+
+        <div class="gallery">
+            <div class="text-heart heart"><span>Always</span></div>
+            <img src="intertwined.jpg" alt="Photo 2">
+
+            <div class="text-heart heart" style="animation-delay: 0.4s;"><span>Forever</span></div>
+            <img src="heart.jpg" alt="Photo 3">
+
+            <h3>I love you so much</h3>
+            <video controls>
+                <source src="Always and Forever.mp4" type="video/mp4">
+            </video>
+            <video controls>
+                <source src="Can't Help Falling in Love.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
     <script>
-let password = "AlwaysAndForever";
-let userInput = prompt("This page is private. Enter the password:");
-
-if (userInput !== password) {
-    document.body.innerHTML = "Access denied.";
-}
-</script>
-
-<div class="container">
-
-
-<!-- SECTION 1 -->
-<div class="section">
-
-    <div class="heart">
-        <div class="heart-text">
-            Joe 🩶
-        </div>
-    </div>
-
-    
-    <div class="text-area">
-        <p>
-            You are my rock, my peace , my strength. In the quiet moments , in tge loud moments, i just want to be with you because the chaos feel lighter when i'm with you. I love you baby, with everything in me fr.
-        </p>
-    </div>
-
-    <!-- 🖼️ ADD YOUR JPEG PHOTO HERE -->
-    <!-- Replace photo1.jpg with your actual file name -->
-    <img src="intertwined.jpg" class="photo">
-
-
-</div>
-
-
-
-<!-- SECTION 2 TEDDY -->
-<div class="section">
-
-    <div class="teddy">🧸</div>
-
-    <div class="heart">
-        <div class="heart-text">
-            Always
-        </div>
-    </div>
-
-    <!-- ✏️ WRITE YOUR PARAGRAPH HERE -->
-    <div class="text-area">
-        <p>
-            My sweet heartbeat, you make everything worthwhile. You help me grow and become better and i really don't take that for granted. Now that I know life with you, I pray to never have to know life without you baby. I love you so much, more than words can say.
-        </p>
-    </div>
-
-
-    <!-- 🎵 ADD YOUR VIDEO SONG HERE -->
-    <!-- Replace song.mp4 with your actual video file -->
-    <video controls>
-        <source src="Always and Forever.mp4" type="video/mp4">
-    </video>
-
-
-</div>
-
-
-
-<!-- SECTION 3 -->
-<div class="section">
-
-    <div class="heart">
-        <div class="heart-text">
-            Forever
-        </div>
-    </div>
-
-    <!-- ✏️ WRITE YOUR PARAGRAPH HERE -->
-    <div class="text-area">
-        <p>
-            I love you baby. Valentines is just another day of showing my love for you. I love you every day of my life. You are on my mind evry second my precious. your name and existence is engraved so deeply in my soul. You own me.
-        </p>
-    </div>
-
-
-    <!-- 🖼️ ADD ANOTHER JPEG PHOTO HERE -->
-    <img src="heart.jpg" class="photo">
-
-
-    <!-- 🎵 OPTIONAL SECOND VIDEO SONG -->
-    <video controls>
-        <source src="Can't Help Falling in Love.mp4" type="video/mp4">
-    </video>
-
-</div>
-
-
-</div>
+        function checkPassword() {
+            const pass = document.getElementById('passInput').value;
+            // CHANGE "yourpassword" TO YOUR CHOSEN KEY
+            if (pass === "alwaysandforever") { 
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                alert("Incorrect. ❤️");
+            }
+        }
+    </script>
 
 </body>
 </html>
